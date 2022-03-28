@@ -1,0 +1,31 @@
+1/ Delete mesenger from putty
+AT
+//Get the command support
+AT+cmgd=?
+
+//Delete SMS message at index 1
+AT+cmgd=1
+
+//Delete all read messages SMS messages, leave unread 
+//messages and stored MO messages untouched
+AT+cmgd=,1
+
+//Delete all read messages SMS messages and sent Mobile
+//originated messages, leave unread messages and unsent MO
+//messages untouched
+AT+cmgd=,2
+
+//Delete all read messages SMS messages. sent and unsent
+//Mobile originated messages, leave unread messages untouched
+AT+cmgd=,3
+
+//Delete all messages including unread messages
+AT+cmgd=,4
+
+
+2/ Reset sim if met CmeError: CME 13
+Connect to console and type command:
+AT
+AT+CFUN=1
+
+If OK, the sim card reset
