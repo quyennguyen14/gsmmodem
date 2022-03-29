@@ -19,7 +19,7 @@ def processSms(sms):
         text_message = sms.text
         logMess = "Message Info: (smsTime: {}, smsNumber: {}, smsText: {})".format(str(sms.time)[0:19], sms.number, text_message.encode("utf-8)"))
 
-        logging.info(logMess)
+        logging.info(logMess.replace('\n', ''))
 
         Amount = -1
 

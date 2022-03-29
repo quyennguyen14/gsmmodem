@@ -17,8 +17,7 @@ def processSms(sms):
         text_message = text_message.replace("\n", " ")
         logMess = "Message Info: (smsTime: {}, smsNumber: {}, smsText: {})".format(str(sms.time)[0:19], sms.number, text_message.encode("utf-8)"))
 
-        logging.info(logMess)
-        print(logMess)
+        logging.info(logMess.replace('\n', ''))
         #  Amount = -1
         #
         #  if sms.number == 'MSB':
