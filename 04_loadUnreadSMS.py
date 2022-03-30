@@ -44,6 +44,7 @@ def processSms(sms):
             except:
                 Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), Amount, BankTransferCode)
         else:
+            Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), -1, "unformat")
             logging.info("MSB, don't need process")
 
     except Exception as e:

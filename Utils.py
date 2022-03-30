@@ -37,7 +37,7 @@ def splitMessage(textMessage):
         textSub1 = textMessage[textMessage.index('(+) ') + 4:len(textMessage)]
 
         try:
-            textSub2 = textMessage[textMessage.index('-PAY ') + 5:len(textMessage)]
+            textSub2 = textMessage[textMessage.index('PAY ') + 4:len(textMessage)]
         except:
             return -1, 'Không phải bản tin cần xử lý'
 
@@ -214,8 +214,8 @@ def sp_update_status(LogId):
 #
 #  response = postApi(url=urlApi, BankTransferCode=BankTransferCode, secretKey=secretKey, Amount=Amount, BankTransRefID=BankTransRefID)
 #  print(response)
-if __name__ == '__main__':
-    #  sp_insert_failed_sms(time='2022-03-25', textMessage='abc',Amount=100001,BankTransferCode='jkl233')
-    result = sp_get_sms_failed()
-    for i in result:
-        print(i)
+#  if __name__ == '__main__':
+#      textMessage = "29/03 18:33 TK VND 031xx8869 (+) 200,000 (Thue/Phi: 0)Tu ND: -595440-MSB03101010508869PAY F3482GSD: 1.280.000)"
+#      amount, code = splitMessage2(textMessage=textMessage)
+#      print(amount)
+#      print(code)
