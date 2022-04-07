@@ -8,19 +8,19 @@ AT+cmgd=1
 
 //Delete all read messages SMS messages, leave unread 
 //messages and stored MO messages untouched
-AT+cmgd=,1
+AT+cmgd=1,1
 
 //Delete all read messages SMS messages and sent Mobile
 //originated messages, leave unread messages and unsent MO
 //messages untouched
-AT+cmgd=,2
+AT+cmgd=1,2
 
 //Delete all read messages SMS messages. sent and unsent
 //Mobile originated messages, leave unread messages untouched
-AT+cmgd=,3
+AT+cmgd=1,3
 
 //Delete all messages including unread messages
-AT+cmgd=,4
+AT+cmgd=1,4
 
 
 2/ Reset sim if met CmeError: CME 13

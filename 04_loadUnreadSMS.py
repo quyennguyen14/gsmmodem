@@ -38,13 +38,20 @@ def processSms(sms):
                         BankTransRefID='')
 
                 logCallApi = response_text
+                logging.info("Message Info: BankTransferCode={}, Amount={}".format(str(BankTransferCode), str(Amount)))
                 logging.info(logCallApi)
-                Utils.sp_insert_success_sms(sms.time, text_message.encode("utf-8"), Amount, BankTransferCode)
+
+                jsonData = json.loads(logCallApi)
+
+                if int(jsonData["ResponseCode"]) == 1:
+                    Utils.sp_insert_success_sms(sms.time, text_message.encode("utf-8"), Amount, BankTransferCode)
+                else:
+                    Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), -1, "code")
 
             except:
                 Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), Amount, BankTransferCode)
         else:
-            Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), -1, "unformat")
+            Utils.sp_insert_failed_sms(sms.time, text_message.encode("utf-8"), -1, "unfor")
             logging.info("MSB, don't need process")
 
     except Exception as e:
@@ -67,6 +74,7 @@ def processSms_fromDB(LogId, smsTime, smsMessage, smsAmount, BankTransferCode):
 
         logCallApi = response_text
         logging.info(logCallApi)
+        logging.info("Message Info: BankTransferCode={}, Amount={}".format(str(BankTransferCode), str(smsAmount)))
 
         jsonData = json.loads(logCallApi)
 
